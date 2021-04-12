@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Windows.Forms;
 using System.IO;
+using File_Creator.boilerplate;
+using System.Text;
 
 namespace File_Creator
 {
@@ -37,15 +39,25 @@ namespace File_Creator
                 {
                     //TODO check if file w/same name & extension already exists in directory, warn user
 
+
+
                     //create file 
                     String path = txtFilePath.Text.Trim() + "/" + txtFileName.Text.Trim() + "." + cboExtensions.Text.Trim();
                     FileStream fs = File.Create(path);
+
+                    //if boilerplate is checked and valid, generate it
+                    if (chkBoilerplate.Checked && Boilerplate.HasBoilerplate(cboExtensions.Text.Trim()))
+                    {
+                        string bp = Boilerplate.CreateBoilerplate(cboExtensions.Text.Trim(), txtFileName.Text.Trim());
+                        UTF8Encoding encoding = new UTF8Encoding();
+                        fs.Write(encoding.GetBytes(bp), 0, encoding.GetByteCount(bp));
+                    }
                     fs.Close();
-                    
+
                     MessageBox.Show(txtFileName.Text.Trim() + "." + cboExtensions.Text.Trim() + " created in " + txtFilePath.Text.Trim(), "Success");
                 }
 
-                catch (Exception)
+                catch (Exception ex)
                 {
                     MessageBox.Show("Unable to create file. Verify file extension and path are valid.", "Error");
                 }
@@ -62,6 +74,31 @@ namespace File_Creator
             txtFileName.Text = "";
             txtFilePath.Text = "";
             cboExtensions.Text = "";
+        }
+
+        private void cboExtensions_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cboExtensions_TextUpdate(sender, e);
+        }
+
+        //checks user input; enables boilerplate checkbox where supported
+        private void cboExtensions_TextUpdate(object sender, EventArgs e)
+        {
+            if (Boilerplate.HasBoilerplate(cboExtensions.Text))
+            {
+                ToggleBoilerplate(true);
+            }
+
+            else
+            {
+                ToggleBoilerplate(false);
+            }
+        }
+
+        private void ToggleBoilerplate(bool enable)
+        {
+            chkBoilerplate.Enabled = enable;
+            chkBoilerplate.Visible = enable;
         }
     }
 }

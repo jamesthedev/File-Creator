@@ -42,6 +42,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.extensionsTooltip = new System.Windows.Forms.ToolTip(this.components);
+            this.chkBoilerplate = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // txtFileName
@@ -73,22 +74,22 @@
             // 
             // btnGenerate
             // 
-            this.btnGenerate.Location = new System.Drawing.Point(13, 217);
+            this.btnGenerate.Location = new System.Drawing.Point(13, 268);
             this.btnGenerate.Margin = new System.Windows.Forms.Padding(4);
             this.btnGenerate.Name = "btnGenerate";
             this.btnGenerate.Size = new System.Drawing.Size(140, 30);
-            this.btnGenerate.TabIndex = 4;
+            this.btnGenerate.TabIndex = 5;
             this.btnGenerate.Text = "&Generate File";
             this.btnGenerate.UseVisualStyleBackColor = true;
             this.btnGenerate.Click += new System.EventHandler(this.btnGenerate_Click);
             // 
             // btnClear
             // 
-            this.btnClear.Location = new System.Drawing.Point(230, 217);
+            this.btnClear.Location = new System.Drawing.Point(230, 268);
             this.btnClear.Margin = new System.Windows.Forms.Padding(4);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(100, 30);
-            this.btnClear.TabIndex = 5;
+            this.btnClear.TabIndex = 6;
             this.btnClear.Text = "&Clear Fields";
             this.btnClear.UseVisualStyleBackColor = true;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
@@ -96,7 +97,7 @@
             // lblPath
             // 
             this.lblPath.AutoSize = true;
-            this.lblPath.Location = new System.Drawing.Point(16, 143);
+            this.lblPath.Location = new System.Drawing.Point(16, 189);
             this.lblPath.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPath.Name = "lblPath";
             this.lblPath.Size = new System.Drawing.Size(67, 17);
@@ -105,20 +106,20 @@
             // 
             // txtFilePath
             // 
-            this.txtFilePath.Location = new System.Drawing.Point(119, 138);
+            this.txtFilePath.Location = new System.Drawing.Point(119, 184);
             this.txtFilePath.Margin = new System.Windows.Forms.Padding(4);
             this.txtFilePath.Name = "txtFilePath";
             this.txtFilePath.Size = new System.Drawing.Size(329, 22);
-            this.txtFilePath.TabIndex = 3;
+            this.txtFilePath.TabIndex = 4;
             // 
             // btnExit
             // 
             this.btnExit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnExit.Location = new System.Drawing.Point(348, 217);
+            this.btnExit.Location = new System.Drawing.Point(348, 268);
             this.btnExit.Margin = new System.Windows.Forms.Padding(4);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(100, 30);
-            this.btnExit.TabIndex = 6;
+            this.btnExit.TabIndex = 7;
             this.btnExit.Text = "E&xit";
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
@@ -132,27 +133,40 @@
             this.cboExtensions.IntegralHeight = false;
             this.cboExtensions.Items.AddRange(new object[] {
             "c",
-            "class",
             "cs",
-            "css ",
+            "css",
             "html",
             "java",
             "js ",
             "php"});
-            this.cboExtensions.Location = new System.Drawing.Point(119, 74);
+            this.cboExtensions.Location = new System.Drawing.Point(119, 90);
             this.cboExtensions.Name = "cboExtensions";
             this.cboExtensions.Size = new System.Drawing.Size(175, 24);
             this.cboExtensions.Sorted = true;
             this.cboExtensions.TabIndex = 2;
+            this.cboExtensions.SelectedIndexChanged += new System.EventHandler(this.cboExtensions_SelectedIndexChanged);
+            this.cboExtensions.TextUpdate += new System.EventHandler(this.cboExtensions_TextUpdate);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(16, 81);
+            this.label1.Location = new System.Drawing.Point(16, 97);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(73, 17);
             this.label1.TabIndex = 9;
             this.label1.Text = "Extension:";
+            // 
+            // chkBoilerplate
+            // 
+            this.chkBoilerplate.AutoSize = true;
+            this.chkBoilerplate.Enabled = false;
+            this.chkBoilerplate.Location = new System.Drawing.Point(119, 120);
+            this.chkBoilerplate.Name = "chkBoilerplate";
+            this.chkBoilerplate.Size = new System.Drawing.Size(146, 21);
+            this.chkBoilerplate.TabIndex = 3;
+            this.chkBoilerplate.Text = "Include &Boilerplate";
+            this.chkBoilerplate.UseVisualStyleBackColor = true;
+            this.chkBoilerplate.Visible = false;
             // 
             // frmFileCreator
             // 
@@ -160,7 +174,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnExit;
-            this.ClientSize = new System.Drawing.Size(464, 260);
+            this.ClientSize = new System.Drawing.Size(464, 308);
+            this.Controls.Add(this.chkBoilerplate);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cboExtensions);
             this.Controls.Add(this.btnExit);
@@ -194,6 +209,7 @@
         private System.Windows.Forms.Label label1;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.ToolTip extensionsTooltip;
+        private System.Windows.Forms.CheckBox chkBoilerplate;
     }
 }
 
