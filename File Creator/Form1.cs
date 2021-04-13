@@ -75,16 +75,10 @@ namespace File_Creator
 
                 MessageBox.Show(fileName + "." + extension + " created in " + filePath, "Success");
 
-                //if file group, repeat function for next file 
-                if (extensionList != null)
+                //if file group, repeat function for next file. stop the process if the list is empty
+                if (extensionList != null && extensionList.Count() > 1)
                 {
-                    extensionList.RemoveAt(0);
-
-                    //stop the process if the list is empty
-                    if (extensionList.Count() > 0)
-                    {
-                        MakeFiles(extensionList);
-                    }
+                    MakeFiles(extensionList.GetRange(1, extensionList.Count() - 1));
                 }
             }
 
@@ -105,7 +99,11 @@ namespace File_Creator
         private void ToggleFileGroup(bool enable)
         {
             chkFileGroup.Enabled = enable;
-            if (enable == false) chkBoilerplate.Checked = false; //reset checked state
+
+            if (enable == false) chkFileGroup.Checked = false; //reset checked state
+
+            //for now, boilerplate will be enabled if something like CSS is selected. CSS doesn't have boilerplate but HTML does, so the user needs the option
+            else chkBoilerplate.Enabled = true;
         }
 
         #endregion

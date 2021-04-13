@@ -85,7 +85,7 @@
             this.btnGenerate.Name = "btnGenerate";
             this.btnGenerate.Size = new System.Drawing.Size(140, 30);
             this.btnGenerate.TabIndex = 5;
-            this.btnGenerate.Text = "&Generate File";
+            this.btnGenerate.Text = "&Generate File(s)";
             this.btnGenerate.UseVisualStyleBackColor = true;
             this.btnGenerate.Click += new System.EventHandler(this.btnGenerate_Click);
             // 
