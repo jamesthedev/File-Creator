@@ -37,7 +37,6 @@
             this.btnClear = new System.Windows.Forms.Button();
             this.lblPath = new System.Windows.Forms.Label();
             this.txtFilePath = new System.Windows.Forms.TextBox();
-            this.btnExit = new System.Windows.Forms.Button();
             this.cboExtensions = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
@@ -80,23 +79,27 @@
             // 
             // btnGenerate
             // 
-            this.btnGenerate.Location = new System.Drawing.Point(13, 301);
+            this.btnGenerate.BackColor = System.Drawing.Color.MintCream;
+            this.btnGenerate.FlatAppearance.BorderColor = System.Drawing.Color.PaleGreen;
+            this.btnGenerate.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.btnGenerate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGenerate.Location = new System.Drawing.Point(18, 270);
             this.btnGenerate.Margin = new System.Windows.Forms.Padding(4);
             this.btnGenerate.Name = "btnGenerate";
-            this.btnGenerate.Size = new System.Drawing.Size(140, 30);
-            this.btnGenerate.TabIndex = 5;
-            this.btnGenerate.Text = "&Generate File(s)";
-            this.btnGenerate.UseVisualStyleBackColor = true;
+            this.btnGenerate.Size = new System.Drawing.Size(153, 57);
+            this.btnGenerate.TabIndex = 7;
+            this.btnGenerate.Text = "Create &File";
+            this.btnGenerate.UseVisualStyleBackColor = false;
             this.btnGenerate.Click += new System.EventHandler(this.btnGenerate_Click);
             // 
             // btnClear
             // 
-            this.btnClear.Location = new System.Drawing.Point(530, 301);
+            this.btnClear.Location = new System.Drawing.Point(590, 283);
             this.btnClear.Margin = new System.Windows.Forms.Padding(4);
             this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(100, 30);
-            this.btnClear.TabIndex = 6;
-            this.btnClear.Text = "&Clear Fields";
+            this.btnClear.Size = new System.Drawing.Size(140, 30);
+            this.btnClear.TabIndex = 9;
+            this.btnClear.Text = "&Clear All Fields";
             this.btnClear.UseVisualStyleBackColor = true;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
@@ -116,19 +119,7 @@
             this.txtFilePath.Margin = new System.Windows.Forms.Padding(4);
             this.txtFilePath.Name = "txtFilePath";
             this.txtFilePath.Size = new System.Drawing.Size(473, 22);
-            this.txtFilePath.TabIndex = 4;
-            // 
-            // btnExit
-            // 
-            this.btnExit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnExit.Location = new System.Drawing.Point(648, 301);
-            this.btnExit.Margin = new System.Windows.Forms.Padding(4);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(100, 30);
-            this.btnExit.TabIndex = 7;
-            this.btnExit.Text = "E&xit";
-            this.btnExit.UseVisualStyleBackColor = true;
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            this.txtFilePath.TabIndex = 5;
             // 
             // cboExtensions
             // 
@@ -141,10 +132,13 @@
             "c",
             "cs",
             "css",
+            "docx",
             "html",
             "java",
             "js ",
-            "php"});
+            "php",
+            "pptx",
+            "xml"});
             this.cboExtensions.Location = new System.Drawing.Point(118, 95);
             this.cboExtensions.Name = "cboExtensions";
             this.cboExtensions.Size = new System.Drawing.Size(175, 24);
@@ -183,7 +177,7 @@
             this.btnSelect.Location = new System.Drawing.Point(601, 183);
             this.btnSelect.Name = "btnSelect";
             this.btnSelect.Size = new System.Drawing.Size(94, 27);
-            this.btnSelect.TabIndex = 10;
+            this.btnSelect.TabIndex = 6;
             this.btnSelect.Text = "&Select...";
             this.btnSelect.UseVisualStyleBackColor = true;
             this.btnSelect.Click += new System.EventHandler(this.btnSelect_Click);
@@ -195,20 +189,21 @@
             this.chkFileGroup.Location = new System.Drawing.Point(458, 99);
             this.chkFileGroup.Name = "chkFileGroup";
             this.chkFileGroup.Size = new System.Drawing.Size(142, 21);
-            this.chkFileGroup.TabIndex = 11;
-            this.chkFileGroup.Text = "Create &File Group";
+            this.chkFileGroup.TabIndex = 4;
+            this.chkFileGroup.Text = "Create File &Group";
             this.chkFileGroup.UseVisualStyleBackColor = true;
+            this.chkFileGroup.CheckedChanged += new System.EventHandler(this.chkFileGroup_CheckedChanged);
             // 
             // chkOpenFiles
             // 
             this.chkOpenFiles.AutoSize = true;
             this.chkOpenFiles.Checked = true;
             this.chkOpenFiles.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkOpenFiles.Location = new System.Drawing.Point(163, 307);
+            this.chkOpenFiles.Location = new System.Drawing.Point(178, 289);
             this.chkOpenFiles.Name = "chkOpenFiles";
-            this.chkOpenFiles.Size = new System.Drawing.Size(165, 21);
-            this.chkOpenFiles.TabIndex = 12;
-            this.chkOpenFiles.Text = " &Open My New File(s)";
+            this.chkOpenFiles.Size = new System.Drawing.Size(195, 21);
+            this.chkOpenFiles.TabIndex = 8;
+            this.chkOpenFiles.Text = "&Open File When Complete";
             this.chkOpenFiles.UseVisualStyleBackColor = true;
             // 
             // frmFileCreator
@@ -216,15 +211,13 @@
             this.AcceptButton = this.btnGenerate;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.CancelButton = this.btnExit;
-            this.ClientSize = new System.Drawing.Size(762, 349);
+            this.ClientSize = new System.Drawing.Size(762, 343);
             this.Controls.Add(this.chkOpenFiles);
             this.Controls.Add(this.chkFileGroup);
             this.Controls.Add(this.btnSelect);
             this.Controls.Add(this.chkBoilerplate);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cboExtensions);
-            this.Controls.Add(this.btnExit);
             this.Controls.Add(this.txtFilePath);
             this.Controls.Add(this.lblPath);
             this.Controls.Add(this.btnClear);
@@ -234,6 +227,7 @@
             this.Controls.Add(this.txtFileName);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
             this.Name = "frmFileCreator";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "File Creator";
@@ -251,7 +245,6 @@
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Label lblPath;
         private System.Windows.Forms.TextBox txtFilePath;
-        private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.ComboBox cboExtensions;
         private System.Windows.Forms.Label label1;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;

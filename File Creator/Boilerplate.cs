@@ -12,7 +12,8 @@ namespace File_Creator.boilerplate
         {
             "html",
             "cs",
-            "java"
+            "java",
+            "xml"
         };
 
         public static bool HasBoilerplate(string opt)
@@ -20,26 +21,28 @@ namespace File_Creator.boilerplate
             return BoilerplateList.Contains(opt.ToLower().Trim());
         }
 
-        public static string CreateBoilerplate(string opt, string fname)
+        public static string CreateBoilerplate(string opt, string fname, bool fileGroup)
         {
-            if (opt.ToLower() == "html")
+            switch(opt.ToLower())
             {
-                return HtmlBoilerPlate();
-            }
-
-            else 
-            {
-                return ClassBoilerplate(opt, fname);
+                case "html":
+                    return HtmlBoilerPlate(fileGroup, fname);
+                case "xml":
+                    return XmlBoilerplate();
+                default:
+                    return ClassBoilerplate(opt, fname);
             }
         }
 
-        private static string HtmlBoilerPlate()
+        //adds reference to CSS file if part of a file group
+        private static string HtmlBoilerPlate(bool fileGroup, string fname)
         {
             return 
                 "<!DOCTYPE html>\n" +
-                "<html lang='en' xmlns='http://www.w3.org/1999/xhtml'>\n" +
+                "<html lang=\"en\" xmlns=\"http://www.w3.org/1999/xhtml\">\n" +
                 "<head>\n"  +
-                    "\t<meta charset='utf-8' />\n" +
+                    (fileGroup ? $"<link rel=\"stylesheet\" href=\"{fname}.css\"\n>" : "") +
+                    "\t<meta charset=\"utf-8\" />\n" +
                     "\t<title></title>\n" +
                 "</head>\n" +
                 "<body>\n\t\n"  +
@@ -51,6 +54,11 @@ namespace File_Creator.boilerplate
         private static string ClassBoilerplate(string opt, string fname)
         {
             return String.Format("public class {0} \n{{\n\tpublic {0}() {{}}\n}}", fname);
+        }
+
+        private static string XmlBoilerplate()
+        {
+            return "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
         }
     }
 }

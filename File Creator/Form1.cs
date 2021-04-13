@@ -15,9 +15,7 @@ namespace File_Creator
         {
             InitializeComponent();
 
-            fileCreatorTooltips.SetToolTip(cboExtensions, "Select an option or type a custom extension");
-            fileCreatorTooltips.SetToolTip(chkBoilerplate, "Adds some baseline code to the file to get you started.");
-            fileCreatorTooltips.SetToolTip(chkFileGroup, "Creates a group of related files with the same name (i.e. HTML/JS/CSS)");
+            CreateTooltips();       
 
             //try to set path to current user's desktop
             try
@@ -52,7 +50,7 @@ namespace File_Creator
                 //if boilerplate is checked and valid, generate it and add to file
                 if (chkBoilerplate.Checked && Boilerplate.HasBoilerplate(extension))
                 {
-                    string bp = Boilerplate.CreateBoilerplate(extension, fileName);
+                    string bp = Boilerplate.CreateBoilerplate(extension, fileName, chkFileGroup.Checked);
                     UTF8Encoding encoding = new UTF8Encoding();
                     fs.Write(encoding.GetBytes(bp), 0, encoding.GetByteCount(bp));
                 }
@@ -73,7 +71,8 @@ namespace File_Creator
                     }
                 }
 
-                MessageBox.Show(fileName + "." + extension + " created in " + filePath, "Success");
+                MessageBox.Show(fileName + "." + extension + " created in " + filePath, "Success", MessageBoxButtons.OK, MessageBoxIcon.None,
+                    MessageBoxDefaultButton.Button1, (MessageBoxOptions)0x40000); //displays on top of other windows. helpful for when new files are opened 
 
                 //if file group, repeat function for next file. stop the process if the list is empty
                 if (extensionList != null && extensionList.Count() > 1)
@@ -86,6 +85,15 @@ namespace File_Creator
             {
                 MessageBox.Show("Unable to create file. Verify file extension and path are valid.", "Error");
             }
+        }
+
+        private void CreateTooltips()
+        {
+            fileCreatorTooltips.SetToolTip(cboExtensions, "Select an option or type a custom extension");
+            fileCreatorTooltips.SetToolTip(chkBoilerplate, "Adds some baseline code to the file to get you started.");
+            fileCreatorTooltips.SetToolTip(chkFileGroup, "Creates a group of related files with the same name (i.e. HTML/JS/CSS)");
+            fileCreatorTooltips.SetToolTip(chkOpenFiles, "Opens your new file(s) using your default application for each filetype");
+            fileCreatorTooltips.SetToolTip(cboExtensions, "Select a supported extension or enter a custom one (at your own risk)");
         }
 
         //enables/disables boilerplate checkbox
@@ -101,9 +109,6 @@ namespace File_Creator
             chkFileGroup.Enabled = enable;
 
             if (enable == false) chkFileGroup.Checked = false; //reset checked state
-
-            //for now, boilerplate will be enabled if something like CSS is selected. CSS doesn't have boilerplate but HTML does, so the user needs the option
-            else chkBoilerplate.Enabled = true;
         }
 
         #endregion
@@ -149,16 +154,33 @@ namespace File_Creator
             ToggleFileGroup(FileGroup.HasFileGroup(cboExtensions.Text));
         }
 
-        private void btnExit_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
         private void btnClear_Click(object sender, EventArgs e)
         {
             txtFileName.Text = "";
             txtFilePath.Text = "";
             cboExtensions.Text = "";
+            chkBoilerplate.Checked = chkBoilerplate.Enabled = false;
+            chkFileGroup.Checked = chkFileGroup.Enabled = false;
+        }
+
+        private void chkFileGroup_CheckedChanged(object sender, EventArgs e)
+        {
+            //skip extension validation for boilerplate, in case the extension is something like CSS (which doesn't have bp, but HTML does)
+            //this may need to be expanded on if groups are added that have no boilerplate for any extension 
+            if (FileGroup.HasFileGroup(cboExtensions.Text) && chkFileGroup.Checked == true)
+            {
+                ToggleBoilerPlate(true); 
+            }
+
+            //else, re-validate extension
+            else
+            {
+                ToggleBoilerPlate(Boilerplate.HasBoilerplate(cboExtensions.Text));
+            }
+
+            //change text for button + checkbox 
+            btnGenerate.Text = chkFileGroup.Checked ? "&Create Files" : "&Create File";
+            chkOpenFiles.Text = chkFileGroup.Checked ? "&Open Files When Complete" : "&Open File When Complete";
         }
 
         #endregion
