@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Boilerplate.cs" />
+    <Compile Include="FileGroup.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

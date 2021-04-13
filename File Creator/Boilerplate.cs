@@ -8,10 +8,16 @@ namespace File_Creator.boilerplate
 {
     static class Boilerplate
     {
+        private static List<string> BoilerplateList = new List<string>()
+        {
+            "html",
+            "cs",
+            "java"
+        };
+
         public static bool HasBoilerplate(string opt)
         {
-            string lowerOpt = opt.ToLower().Trim();
-            return lowerOpt == "html" || lowerOpt == "cs" || lowerOpt == "java";
+            return BoilerplateList.Contains(opt.ToLower().Trim());
         }
 
         public static string CreateBoilerplate(string opt, string fname)

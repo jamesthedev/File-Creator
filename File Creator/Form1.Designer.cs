@@ -41,13 +41,19 @@
             this.cboExtensions = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.extensionsTooltip = new System.Windows.Forms.ToolTip(this.components);
+            this.fileCreatorTooltips = new System.Windows.Forms.ToolTip(this.components);
             this.chkBoilerplate = new System.Windows.Forms.CheckBox();
+            this.fileSystemWatcher1 = new System.IO.FileSystemWatcher();
+            this.btnSelect = new System.Windows.Forms.Button();
+            this.chkFileGroup = new System.Windows.Forms.CheckBox();
+            this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
+            this.chkOpenFiles = new System.Windows.Forms.CheckBox();
+            ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
             this.SuspendLayout();
             // 
             // txtFileName
             // 
-            this.txtFileName.Location = new System.Drawing.Point(119, 14);
+            this.txtFileName.Location = new System.Drawing.Point(118, 14);
             this.txtFileName.Margin = new System.Windows.Forms.Padding(4);
             this.txtFileName.Name = "txtFileName";
             this.txtFileName.Size = new System.Drawing.Size(175, 22);
@@ -56,7 +62,7 @@
             // lblFileName
             // 
             this.lblFileName.AutoSize = true;
-            this.lblFileName.Location = new System.Drawing.Point(16, 19);
+            this.lblFileName.Location = new System.Drawing.Point(15, 19);
             this.lblFileName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblFileName.Name = "lblFileName";
             this.lblFileName.Size = new System.Drawing.Size(75, 17);
@@ -66,7 +72,7 @@
             // lblError
             // 
             this.lblError.AutoSize = true;
-            this.lblError.Location = new System.Drawing.Point(356, 74);
+            this.lblError.Location = new System.Drawing.Point(359, 79);
             this.lblError.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblError.Name = "lblError";
             this.lblError.Size = new System.Drawing.Size(0, 17);
@@ -74,7 +80,7 @@
             // 
             // btnGenerate
             // 
-            this.btnGenerate.Location = new System.Drawing.Point(13, 268);
+            this.btnGenerate.Location = new System.Drawing.Point(13, 301);
             this.btnGenerate.Margin = new System.Windows.Forms.Padding(4);
             this.btnGenerate.Name = "btnGenerate";
             this.btnGenerate.Size = new System.Drawing.Size(140, 30);
@@ -85,7 +91,7 @@
             // 
             // btnClear
             // 
-            this.btnClear.Location = new System.Drawing.Point(230, 268);
+            this.btnClear.Location = new System.Drawing.Point(530, 301);
             this.btnClear.Margin = new System.Windows.Forms.Padding(4);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(100, 30);
@@ -97,7 +103,7 @@
             // lblPath
             // 
             this.lblPath.AutoSize = true;
-            this.lblPath.Location = new System.Drawing.Point(16, 189);
+            this.lblPath.Location = new System.Drawing.Point(15, 189);
             this.lblPath.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPath.Name = "lblPath";
             this.lblPath.Size = new System.Drawing.Size(67, 17);
@@ -106,16 +112,16 @@
             // 
             // txtFilePath
             // 
-            this.txtFilePath.Location = new System.Drawing.Point(119, 184);
+            this.txtFilePath.Location = new System.Drawing.Point(118, 184);
             this.txtFilePath.Margin = new System.Windows.Forms.Padding(4);
             this.txtFilePath.Name = "txtFilePath";
-            this.txtFilePath.Size = new System.Drawing.Size(329, 22);
+            this.txtFilePath.Size = new System.Drawing.Size(473, 22);
             this.txtFilePath.TabIndex = 4;
             // 
             // btnExit
             // 
             this.btnExit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnExit.Location = new System.Drawing.Point(348, 268);
+            this.btnExit.Location = new System.Drawing.Point(648, 301);
             this.btnExit.Margin = new System.Windows.Forms.Padding(4);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(100, 30);
@@ -139,7 +145,7 @@
             "java",
             "js ",
             "php"});
-            this.cboExtensions.Location = new System.Drawing.Point(119, 90);
+            this.cboExtensions.Location = new System.Drawing.Point(118, 95);
             this.cboExtensions.Name = "cboExtensions";
             this.cboExtensions.Size = new System.Drawing.Size(175, 24);
             this.cboExtensions.Sorted = true;
@@ -150,7 +156,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(16, 97);
+            this.label1.Location = new System.Drawing.Point(15, 100);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(73, 17);
             this.label1.TabIndex = 9;
@@ -160,13 +166,50 @@
             // 
             this.chkBoilerplate.AutoSize = true;
             this.chkBoilerplate.Enabled = false;
-            this.chkBoilerplate.Location = new System.Drawing.Point(119, 120);
+            this.chkBoilerplate.Location = new System.Drawing.Point(305, 99);
             this.chkBoilerplate.Name = "chkBoilerplate";
             this.chkBoilerplate.Size = new System.Drawing.Size(146, 21);
             this.chkBoilerplate.TabIndex = 3;
             this.chkBoilerplate.Text = "Include &Boilerplate";
             this.chkBoilerplate.UseVisualStyleBackColor = true;
-            this.chkBoilerplate.Visible = false;
+            // 
+            // fileSystemWatcher1
+            // 
+            this.fileSystemWatcher1.EnableRaisingEvents = true;
+            this.fileSystemWatcher1.SynchronizingObject = this;
+            // 
+            // btnSelect
+            // 
+            this.btnSelect.Location = new System.Drawing.Point(601, 183);
+            this.btnSelect.Name = "btnSelect";
+            this.btnSelect.Size = new System.Drawing.Size(94, 27);
+            this.btnSelect.TabIndex = 10;
+            this.btnSelect.Text = "&Select...";
+            this.btnSelect.UseVisualStyleBackColor = true;
+            this.btnSelect.Click += new System.EventHandler(this.btnSelect_Click);
+            // 
+            // chkFileGroup
+            // 
+            this.chkFileGroup.AutoSize = true;
+            this.chkFileGroup.Enabled = false;
+            this.chkFileGroup.Location = new System.Drawing.Point(458, 99);
+            this.chkFileGroup.Name = "chkFileGroup";
+            this.chkFileGroup.Size = new System.Drawing.Size(142, 21);
+            this.chkFileGroup.TabIndex = 11;
+            this.chkFileGroup.Text = "Create &File Group";
+            this.chkFileGroup.UseVisualStyleBackColor = true;
+            // 
+            // chkOpenFiles
+            // 
+            this.chkOpenFiles.AutoSize = true;
+            this.chkOpenFiles.Checked = true;
+            this.chkOpenFiles.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkOpenFiles.Location = new System.Drawing.Point(163, 307);
+            this.chkOpenFiles.Name = "chkOpenFiles";
+            this.chkOpenFiles.Size = new System.Drawing.Size(165, 21);
+            this.chkOpenFiles.TabIndex = 12;
+            this.chkOpenFiles.Text = " &Open My New File(s)";
+            this.chkOpenFiles.UseVisualStyleBackColor = true;
             // 
             // frmFileCreator
             // 
@@ -174,7 +217,10 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnExit;
-            this.ClientSize = new System.Drawing.Size(464, 308);
+            this.ClientSize = new System.Drawing.Size(762, 349);
+            this.Controls.Add(this.chkOpenFiles);
+            this.Controls.Add(this.chkFileGroup);
+            this.Controls.Add(this.btnSelect);
             this.Controls.Add(this.chkBoilerplate);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cboExtensions);
@@ -191,6 +237,7 @@
             this.Name = "frmFileCreator";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "File Creator";
+            ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -208,8 +255,13 @@
         private System.Windows.Forms.ComboBox cboExtensions;
         private System.Windows.Forms.Label label1;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
-        private System.Windows.Forms.ToolTip extensionsTooltip;
+        private System.Windows.Forms.ToolTip fileCreatorTooltips;
         private System.Windows.Forms.CheckBox chkBoilerplate;
+        private System.IO.FileSystemWatcher fileSystemWatcher1;
+        private System.Windows.Forms.Button btnSelect;
+        private System.Windows.Forms.CheckBox chkFileGroup;
+        private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
+        private System.Windows.Forms.CheckBox chkOpenFiles;
     }
 }
 
