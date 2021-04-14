@@ -8,3 +8,5 @@ This is a simple tool but a powerful one for rapidly creating files.
 Supported file extensions: C, CS, CSS, DOCX, HTML, JAVA, JS, PHP, PPTX, XML
 
 The app will allow you to manually enter any extension and attempt to create the file. Usually the creation itself works, but some files (like PDFs) will be missing required formatting and will likely be unuseable.
+
+![screenshot](https://github.com/jamesthedev/File-Creator/blob/master/File%20Creator/screenshot1.PNG)
