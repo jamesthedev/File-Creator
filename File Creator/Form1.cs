@@ -11,6 +11,8 @@ namespace File_Creator
 {
     public partial class frmFileCreator : Form
     {
+        private List<string> msgList = new List<string>();
+
         public frmFileCreator()
         {
             InitializeComponent();
@@ -32,19 +34,25 @@ namespace File_Creator
         #region DATA_MANIP
         private void MakeFiles(List<string> extensionList = null)
         {
-            //function will run once per item in file group
+            //function will run once per item in file group (or just once if there is no group)
             string extension = extensionList == null ? cboExtensions.Text.Trim() : extensionList[0];
             string filePath = txtFilePath.Text.Trim();
             string fileName = txtFileName.Text.Trim();
 
             try
             {
-                //TODO check if file w/same name & extension already exists in directory, warn user
-
-
-
                 //create file 
-                string path = filePath + "/" + fileName + "." + extension;
+                string path = $"{filePath}/{fileName}.{extension}";
+
+                if (File.Exists(path))
+                {
+                    if (MessageBox.Show("A file with the same name and extension already exists in this directory. " +
+                        "Would you like to replace it?", "Error", MessageBoxButtons.YesNo) == DialogResult.No)
+                    {
+                        return;
+                    }
+                }
+
                 FileStream fs = File.Create(path);
 
                 //if boilerplate is checked and valid, generate it and add to file
@@ -71,8 +79,7 @@ namespace File_Creator
                     }
                 }
 
-                MessageBox.Show(fileName + "." + extension + " created in " + filePath, "Success", MessageBoxButtons.OK, MessageBoxIcon.None,
-                    MessageBoxDefaultButton.Button1, (MessageBoxOptions)0x40000); //displays on top of other windows. helpful for when new files are opened 
+                AddMessage($"{fileName}.{extension} created in {filePath}");
 
                 //if file group, repeat function for next file. stop the process if the list is empty
                 if (extensionList != null && extensionList.Count() > 1)
@@ -85,6 +92,22 @@ namespace File_Creator
             {
                 MessageBox.Show("Unable to create file. Verify file extension and path are valid.", "Error");
             }
+        }
+        
+        //manages messages being displayed in the bottom-right texbox. 
+        private void AddMessage(string message)
+        {
+            //displays only the 20 most recent messages
+            if (msgList.Count() > 19)
+            {
+                msgList.RemoveAt(msgList.Count() - 1);
+            }
+
+            //adds timestamp 
+            message = $"[{DateTime.Now.ToShortTimeString()}]: {message}";
+
+            msgList.Insert(0, message);
+            txtMessages.Text = String.Join("\r\n", msgList);
         }
 
         private void CreateTooltips()

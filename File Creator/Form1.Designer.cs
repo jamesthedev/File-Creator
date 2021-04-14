@@ -47,21 +47,22 @@
             this.chkFileGroup = new System.Windows.Forms.CheckBox();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.chkOpenFiles = new System.Windows.Forms.CheckBox();
+            this.txtMessages = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
             this.SuspendLayout();
             // 
             // txtFileName
             // 
-            this.txtFileName.Location = new System.Drawing.Point(118, 14);
+            this.txtFileName.Location = new System.Drawing.Point(118, 39);
             this.txtFileName.Margin = new System.Windows.Forms.Padding(4);
             this.txtFileName.Name = "txtFileName";
-            this.txtFileName.Size = new System.Drawing.Size(175, 22);
+            this.txtFileName.Size = new System.Drawing.Size(293, 22);
             this.txtFileName.TabIndex = 1;
             // 
             // lblFileName
             // 
             this.lblFileName.AutoSize = true;
-            this.lblFileName.Location = new System.Drawing.Point(15, 19);
+            this.lblFileName.Location = new System.Drawing.Point(28, 44);
             this.lblFileName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblFileName.Name = "lblFileName";
             this.lblFileName.Size = new System.Drawing.Size(75, 17);
@@ -71,7 +72,7 @@
             // lblError
             // 
             this.lblError.AutoSize = true;
-            this.lblError.Location = new System.Drawing.Point(359, 79);
+            this.lblError.Location = new System.Drawing.Point(359, 104);
             this.lblError.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblError.Name = "lblError";
             this.lblError.Size = new System.Drawing.Size(0, 17);
@@ -83,10 +84,10 @@
             this.btnGenerate.FlatAppearance.BorderColor = System.Drawing.Color.PaleGreen;
             this.btnGenerate.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.btnGenerate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGenerate.Location = new System.Drawing.Point(18, 270);
+            this.btnGenerate.Location = new System.Drawing.Point(18, 346);
             this.btnGenerate.Margin = new System.Windows.Forms.Padding(4);
             this.btnGenerate.Name = "btnGenerate";
-            this.btnGenerate.Size = new System.Drawing.Size(153, 57);
+            this.btnGenerate.Size = new System.Drawing.Size(191, 68);
             this.btnGenerate.TabIndex = 7;
             this.btnGenerate.Text = "Create &File";
             this.btnGenerate.UseVisualStyleBackColor = false;
@@ -94,10 +95,12 @@
             // 
             // btnClear
             // 
-            this.btnClear.Location = new System.Drawing.Point(590, 283);
+            this.btnClear.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClear.Location = new System.Drawing.Point(18, 425);
             this.btnClear.Margin = new System.Windows.Forms.Padding(4);
             this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(140, 30);
+            this.btnClear.Size = new System.Drawing.Size(191, 30);
             this.btnClear.TabIndex = 9;
             this.btnClear.Text = "&Clear All Fields";
             this.btnClear.UseVisualStyleBackColor = true;
@@ -106,7 +109,7 @@
             // lblPath
             // 
             this.lblPath.AutoSize = true;
-            this.lblPath.Location = new System.Drawing.Point(15, 189);
+            this.lblPath.Location = new System.Drawing.Point(36, 214);
             this.lblPath.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPath.Name = "lblPath";
             this.lblPath.Size = new System.Drawing.Size(67, 17);
@@ -115,10 +118,10 @@
             // 
             // txtFilePath
             // 
-            this.txtFilePath.Location = new System.Drawing.Point(118, 184);
+            this.txtFilePath.Location = new System.Drawing.Point(118, 209);
             this.txtFilePath.Margin = new System.Windows.Forms.Padding(4);
             this.txtFilePath.Name = "txtFilePath";
-            this.txtFilePath.Size = new System.Drawing.Size(473, 22);
+            this.txtFilePath.Size = new System.Drawing.Size(540, 22);
             this.txtFilePath.TabIndex = 5;
             // 
             // cboExtensions
@@ -139,9 +142,9 @@
             "php",
             "pptx",
             "xml"});
-            this.cboExtensions.Location = new System.Drawing.Point(118, 95);
+            this.cboExtensions.Location = new System.Drawing.Point(118, 120);
             this.cboExtensions.Name = "cboExtensions";
-            this.cboExtensions.Size = new System.Drawing.Size(175, 24);
+            this.cboExtensions.Size = new System.Drawing.Size(235, 24);
             this.cboExtensions.Sorted = true;
             this.cboExtensions.TabIndex = 2;
             this.cboExtensions.SelectedIndexChanged += new System.EventHandler(this.cboExtensions_SelectedIndexChanged);
@@ -150,7 +153,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(15, 100);
+            this.label1.Location = new System.Drawing.Point(30, 127);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(73, 17);
             this.label1.TabIndex = 9;
@@ -160,7 +163,7 @@
             // 
             this.chkBoilerplate.AutoSize = true;
             this.chkBoilerplate.Enabled = false;
-            this.chkBoilerplate.Location = new System.Drawing.Point(305, 99);
+            this.chkBoilerplate.Location = new System.Drawing.Point(364, 123);
             this.chkBoilerplate.Name = "chkBoilerplate";
             this.chkBoilerplate.Size = new System.Drawing.Size(146, 21);
             this.chkBoilerplate.TabIndex = 3;
@@ -174,7 +177,9 @@
             // 
             // btnSelect
             // 
-            this.btnSelect.Location = new System.Drawing.Point(601, 183);
+            this.btnSelect.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.btnSelect.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSelect.Location = new System.Drawing.Point(665, 208);
             this.btnSelect.Name = "btnSelect";
             this.btnSelect.Size = new System.Drawing.Size(94, 27);
             this.btnSelect.TabIndex = 6;
@@ -186,7 +191,7 @@
             // 
             this.chkFileGroup.AutoSize = true;
             this.chkFileGroup.Enabled = false;
-            this.chkFileGroup.Location = new System.Drawing.Point(458, 99);
+            this.chkFileGroup.Location = new System.Drawing.Point(516, 123);
             this.chkFileGroup.Name = "chkFileGroup";
             this.chkFileGroup.Size = new System.Drawing.Size(142, 21);
             this.chkFileGroup.TabIndex = 4;
@@ -199,19 +204,31 @@
             this.chkOpenFiles.AutoSize = true;
             this.chkOpenFiles.Checked = true;
             this.chkOpenFiles.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkOpenFiles.Location = new System.Drawing.Point(178, 289);
+            this.chkOpenFiles.Location = new System.Drawing.Point(18, 318);
             this.chkOpenFiles.Name = "chkOpenFiles";
             this.chkOpenFiles.Size = new System.Drawing.Size(195, 21);
             this.chkOpenFiles.TabIndex = 8;
             this.chkOpenFiles.Text = "&Open File When Complete";
             this.chkOpenFiles.UseVisualStyleBackColor = true;
             // 
+            // txtMessages
+            // 
+            this.txtMessages.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
+            this.txtMessages.Location = new System.Drawing.Point(227, 344);
+            this.txtMessages.Multiline = true;
+            this.txtMessages.Name = "txtMessages";
+            this.txtMessages.ReadOnly = true;
+            this.txtMessages.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtMessages.Size = new System.Drawing.Size(532, 111);
+            this.txtMessages.TabIndex = 11;
+            // 
             // frmFileCreator
             // 
             this.AcceptButton = this.btnGenerate;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(762, 343);
+            this.ClientSize = new System.Drawing.Size(776, 473);
+            this.Controls.Add(this.txtMessages);
             this.Controls.Add(this.chkOpenFiles);
             this.Controls.Add(this.chkFileGroup);
             this.Controls.Add(this.btnSelect);
@@ -255,6 +272,7 @@
         private System.Windows.Forms.CheckBox chkFileGroup;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
         private System.Windows.Forms.CheckBox chkOpenFiles;
+        private System.Windows.Forms.TextBox txtMessages;
     }
 }
 
