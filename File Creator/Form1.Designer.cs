@@ -246,6 +246,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "frmFileCreator";
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "File Creator";
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).EndInit();

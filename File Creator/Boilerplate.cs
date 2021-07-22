@@ -41,7 +41,7 @@ namespace File_Creator.boilerplate
                 "<!DOCTYPE html>\n" +
                 "<html lang=\"en\" xmlns=\"http://www.w3.org/1999/xhtml\">\n" +
                 "<head>\n"  +
-                    (fileGroup ? $"<link rel=\"stylesheet\" href=\"{fname}.css\"\n>" : "") +
+                    (fileGroup ? $"<link rel=\"stylesheet\" href=\"{fname}.css\">\n" : "") +
                     "\t<meta charset=\"utf-8\" />\n" +
                     "\t<title></title>\n" +
                 "</head>\n" +
