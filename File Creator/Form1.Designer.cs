@@ -39,7 +39,6 @@
             this.txtFilePath = new System.Windows.Forms.TextBox();
             this.cboExtensions = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.fileCreatorTooltips = new System.Windows.Forms.ToolTip(this.components);
             this.chkBoilerplate = new System.Windows.Forms.CheckBox();
             this.fileSystemWatcher1 = new System.IO.FileSystemWatcher();
@@ -53,26 +52,28 @@
             // 
             // txtFileName
             // 
-            this.txtFileName.Location = new System.Drawing.Point(118, 39);
+            this.txtFileName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFileName.Location = new System.Drawing.Point(34, 44);
             this.txtFileName.Margin = new System.Windows.Forms.Padding(4);
             this.txtFileName.Name = "txtFileName";
-            this.txtFileName.Size = new System.Drawing.Size(293, 22);
+            this.txtFileName.Size = new System.Drawing.Size(293, 27);
             this.txtFileName.TabIndex = 1;
             // 
             // lblFileName
             // 
             this.lblFileName.AutoSize = true;
-            this.lblFileName.Location = new System.Drawing.Point(28, 44);
+            this.lblFileName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFileName.Location = new System.Drawing.Point(30, 20);
             this.lblFileName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblFileName.Name = "lblFileName";
-            this.lblFileName.Size = new System.Drawing.Size(75, 17);
+            this.lblFileName.Size = new System.Drawing.Size(90, 20);
             this.lblFileName.TabIndex = 2;
             this.lblFileName.Text = "File Name:";
             // 
             // lblError
             // 
             this.lblError.AutoSize = true;
-            this.lblError.Location = new System.Drawing.Point(359, 104);
+            this.lblError.Location = new System.Drawing.Point(359, 82);
             this.lblError.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblError.Name = "lblError";
             this.lblError.Size = new System.Drawing.Size(0, 17);
@@ -84,7 +85,8 @@
             this.btnGenerate.FlatAppearance.BorderColor = System.Drawing.Color.PaleGreen;
             this.btnGenerate.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.btnGenerate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGenerate.Location = new System.Drawing.Point(18, 346);
+            this.btnGenerate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGenerate.Location = new System.Drawing.Point(34, 322);
             this.btnGenerate.Margin = new System.Windows.Forms.Padding(4);
             this.btnGenerate.Name = "btnGenerate";
             this.btnGenerate.Size = new System.Drawing.Size(191, 68);
@@ -97,7 +99,8 @@
             // 
             this.btnClear.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
             this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClear.Location = new System.Drawing.Point(18, 425);
+            this.btnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClear.Location = new System.Drawing.Point(34, 401);
             this.btnClear.Margin = new System.Windows.Forms.Padding(4);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(191, 30);
@@ -109,25 +112,28 @@
             // lblPath
             // 
             this.lblPath.AutoSize = true;
-            this.lblPath.Location = new System.Drawing.Point(36, 214);
+            this.lblPath.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPath.Location = new System.Drawing.Point(30, 185);
             this.lblPath.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPath.Name = "lblPath";
-            this.lblPath.Size = new System.Drawing.Size(67, 17);
+            this.lblPath.Size = new System.Drawing.Size(80, 20);
             this.lblPath.TabIndex = 7;
             this.lblPath.Text = "File Path:";
             // 
             // txtFilePath
             // 
-            this.txtFilePath.Location = new System.Drawing.Point(118, 209);
+            this.txtFilePath.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFilePath.Location = new System.Drawing.Point(34, 209);
             this.txtFilePath.Margin = new System.Windows.Forms.Padding(4);
             this.txtFilePath.Name = "txtFilePath";
-            this.txtFilePath.Size = new System.Drawing.Size(540, 22);
+            this.txtFilePath.Size = new System.Drawing.Size(540, 27);
             this.txtFilePath.TabIndex = 5;
             // 
             // cboExtensions
             // 
             this.cboExtensions.DropDownHeight = 105;
             this.cboExtensions.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.cboExtensions.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboExtensions.ForeColor = System.Drawing.SystemColors.ControlText;
             this.cboExtensions.FormattingEnabled = true;
             this.cboExtensions.IntegralHeight = false;
@@ -142,9 +148,9 @@
             "php",
             "pptx",
             "xml"});
-            this.cboExtensions.Location = new System.Drawing.Point(118, 120);
+            this.cboExtensions.Location = new System.Drawing.Point(34, 128);
             this.cboExtensions.Name = "cboExtensions";
-            this.cboExtensions.Size = new System.Drawing.Size(235, 24);
+            this.cboExtensions.Size = new System.Drawing.Size(235, 28);
             this.cboExtensions.Sorted = true;
             this.cboExtensions.TabIndex = 2;
             this.cboExtensions.SelectedIndexChanged += new System.EventHandler(this.cboExtensions_SelectedIndexChanged);
@@ -153,9 +159,10 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(30, 127);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(30, 105);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(73, 17);
+            this.label1.Size = new System.Drawing.Size(87, 20);
             this.label1.TabIndex = 9;
             this.label1.Text = "Extension:";
             // 
@@ -163,9 +170,10 @@
             // 
             this.chkBoilerplate.AutoSize = true;
             this.chkBoilerplate.Enabled = false;
-            this.chkBoilerplate.Location = new System.Drawing.Point(364, 123);
+            this.chkBoilerplate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkBoilerplate.Location = new System.Drawing.Point(298, 130);
             this.chkBoilerplate.Name = "chkBoilerplate";
-            this.chkBoilerplate.Size = new System.Drawing.Size(146, 21);
+            this.chkBoilerplate.Size = new System.Drawing.Size(169, 24);
             this.chkBoilerplate.TabIndex = 3;
             this.chkBoilerplate.Text = "Include &Boilerplate";
             this.chkBoilerplate.UseVisualStyleBackColor = true;
@@ -179,7 +187,8 @@
             // 
             this.btnSelect.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
             this.btnSelect.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSelect.Location = new System.Drawing.Point(665, 208);
+            this.btnSelect.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSelect.Location = new System.Drawing.Point(594, 210);
             this.btnSelect.Name = "btnSelect";
             this.btnSelect.Size = new System.Drawing.Size(94, 27);
             this.btnSelect.TabIndex = 6;
@@ -191,9 +200,10 @@
             // 
             this.chkFileGroup.AutoSize = true;
             this.chkFileGroup.Enabled = false;
-            this.chkFileGroup.Location = new System.Drawing.Point(516, 123);
+            this.chkFileGroup.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkFileGroup.Location = new System.Drawing.Point(487, 130);
             this.chkFileGroup.Name = "chkFileGroup";
-            this.chkFileGroup.Size = new System.Drawing.Size(142, 21);
+            this.chkFileGroup.Size = new System.Drawing.Size(164, 24);
             this.chkFileGroup.TabIndex = 4;
             this.chkFileGroup.Text = "Create File &Group";
             this.chkFileGroup.UseVisualStyleBackColor = true;
@@ -204,7 +214,7 @@
             this.chkOpenFiles.AutoSize = true;
             this.chkOpenFiles.Checked = true;
             this.chkOpenFiles.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkOpenFiles.Location = new System.Drawing.Point(18, 318);
+            this.chkOpenFiles.Location = new System.Drawing.Point(34, 294);
             this.chkOpenFiles.Name = "chkOpenFiles";
             this.chkOpenFiles.Size = new System.Drawing.Size(195, 21);
             this.chkOpenFiles.TabIndex = 8;
@@ -213,13 +223,13 @@
             // 
             // txtMessages
             // 
-            this.txtMessages.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
-            this.txtMessages.Location = new System.Drawing.Point(227, 344);
+            this.txtMessages.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMessages.Location = new System.Drawing.Point(298, 322);
             this.txtMessages.Multiline = true;
             this.txtMessages.Name = "txtMessages";
             this.txtMessages.ReadOnly = true;
             this.txtMessages.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtMessages.Size = new System.Drawing.Size(532, 111);
+            this.txtMessages.Size = new System.Drawing.Size(390, 111);
             this.txtMessages.TabIndex = 11;
             // 
             // frmFileCreator
@@ -227,7 +237,7 @@
             this.AcceptButton = this.btnGenerate;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(776, 473);
+            this.ClientSize = new System.Drawing.Size(726, 473);
             this.Controls.Add(this.txtMessages);
             this.Controls.Add(this.chkOpenFiles);
             this.Controls.Add(this.chkFileGroup);
@@ -246,7 +256,6 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "frmFileCreator";
-            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "File Creator";
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).EndInit();
@@ -265,7 +274,6 @@
         private System.Windows.Forms.TextBox txtFilePath;
         private System.Windows.Forms.ComboBox cboExtensions;
         private System.Windows.Forms.Label label1;
-        private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.ToolTip fileCreatorTooltips;
         private System.Windows.Forms.CheckBox chkBoilerplate;
         private System.IO.FileSystemWatcher fileSystemWatcher1;

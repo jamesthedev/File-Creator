@@ -46,8 +46,8 @@ namespace File_Creator
 
                 if (File.Exists(path))
                 {
-                    if (MessageBox.Show("A file with the same name and extension already exists in this directory. " +
-                        "Would you like to replace it?", "Error", MessageBoxButtons.YesNo) == DialogResult.No)
+                    if (MessageBox.Show($"{fileName}.{extension} already exists in this directory. Would you like to replace it?", 
+                        "Error", MessageBoxButtons.YesNo) == DialogResult.No)
                     {
                         return;
                     }
