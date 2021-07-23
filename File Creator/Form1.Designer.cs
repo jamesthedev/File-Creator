@@ -84,7 +84,7 @@
             this.btnGenerate.BackColor = System.Drawing.Color.MintCream;
             this.btnGenerate.FlatAppearance.BorderColor = System.Drawing.Color.PaleGreen;
             this.btnGenerate.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.btnGenerate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGenerate.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnGenerate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGenerate.Location = new System.Drawing.Point(34, 322);
             this.btnGenerate.Margin = new System.Windows.Forms.Padding(4);
