@@ -52,6 +52,8 @@
             // 
             // txtFileName
             // 
+            this.txtFileName.BackColor = System.Drawing.SystemColors.Window;
+            this.txtFileName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtFileName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtFileName.Location = new System.Drawing.Point(34, 44);
             this.txtFileName.Margin = new System.Windows.Forms.Padding(4);
@@ -81,11 +83,10 @@
             // 
             // btnGenerate
             // 
-            this.btnGenerate.BackColor = System.Drawing.Color.MintCream;
+            this.btnGenerate.BackColor = System.Drawing.Color.LimeGreen;
             this.btnGenerate.FlatAppearance.BorderColor = System.Drawing.Color.PaleGreen;
             this.btnGenerate.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.btnGenerate.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnGenerate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGenerate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGenerate.Location = new System.Drawing.Point(34, 322);
             this.btnGenerate.Margin = new System.Windows.Forms.Padding(4);
             this.btnGenerate.Name = "btnGenerate";
@@ -98,7 +99,6 @@
             // btnClear
             // 
             this.btnClear.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
-            this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClear.Location = new System.Drawing.Point(34, 401);
             this.btnClear.Margin = new System.Windows.Forms.Padding(4);
@@ -122,19 +122,19 @@
             // 
             // txtFilePath
             // 
+            this.txtFilePath.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtFilePath.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtFilePath.Location = new System.Drawing.Point(34, 209);
             this.txtFilePath.Margin = new System.Windows.Forms.Padding(4);
             this.txtFilePath.Name = "txtFilePath";
-            this.txtFilePath.Size = new System.Drawing.Size(587, 27);
+            this.txtFilePath.Size = new System.Drawing.Size(609, 27);
             this.txtFilePath.TabIndex = 5;
             // 
             // cboExtensions
             // 
             this.cboExtensions.DropDownHeight = 105;
-            this.cboExtensions.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.cboExtensions.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboExtensions.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.cboExtensions.ForeColor = System.Drawing.SystemColors.WindowText;
             this.cboExtensions.FormattingEnabled = true;
             this.cboExtensions.IntegralHeight = false;
             this.cboExtensions.Items.AddRange(new object[] {
@@ -186,9 +186,8 @@
             // btnSelect
             // 
             this.btnSelect.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
-            this.btnSelect.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSelect.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSelect.Location = new System.Drawing.Point(650, 210);
+            this.btnSelect.Location = new System.Drawing.Point(650, 209);
             this.btnSelect.Name = "btnSelect";
             this.btnSelect.Size = new System.Drawing.Size(94, 27);
             this.btnSelect.TabIndex = 6;
@@ -223,6 +222,7 @@
             // 
             // txtMessages
             // 
+            this.txtMessages.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtMessages.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMessages.Location = new System.Drawing.Point(250, 322);
             this.txtMessages.Multiline = true;
@@ -237,6 +237,7 @@
             this.AcceptButton = this.btnGenerate;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ControlLight;
             this.ClientSize = new System.Drawing.Size(780, 455);
             this.Controls.Add(this.txtMessages);
             this.Controls.Add(this.chkOpenFiles);

@@ -9,7 +9,7 @@
   <Identity
     Name="14356JamestheDev.FileCreator"
     Publisher="CN=9282258F-89EF-47FB-8B5C-143B3155EAB5"
-    Version="0.1.17.0" />
+    Version="0.1.18.0" />
 
   <Properties>
     <DisplayName>File Creator</DisplayName>
